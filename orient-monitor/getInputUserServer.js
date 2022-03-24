@@ -1,12 +1,20 @@
-//const PORT = 8000;
+const PORT = 8000;
+const express = require("express");
+require("dotenv").config();
+
+const app = express();
+
 const prompt = require("prompt");
+
+let Altitude;
+let HSI;
+let ADI;
 
 const properties = [
   {
     name: "Altitude",
     warning: "Altitude must be only a number between 0-3000",
     conform: function (Altitude) {
-      debugger;
       return parseInt(Altitude) <= 3000 && parseInt(Altitude) >= 0;
     },
   },
@@ -37,9 +45,22 @@ prompt.get(properties, function (err, result) {
   console.log("  Altitude: " + result.Altitude);
   console.log("  HSI: " + result.HSI);
   console.log("  ADI: " + result.ADI);
+
+  Altitude = parseInt(result.Altitude);
+  HSI = parseInt(result.HSI);
+  ADI = parseInt(result.ADI);
 });
 
 function onErr(err) {
   console.log(err);
   return 1;
 }
+
+app.get("/properties", function (req, res) {
+  debugger;
+  res.json({
+    Altitude: Altitude,
+    HSI: HSI,
+    ADI: ADI,
+  });
+});

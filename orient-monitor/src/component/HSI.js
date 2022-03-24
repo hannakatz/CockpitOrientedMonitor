@@ -1,33 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { FaLongArrowAltUp } from "react-icons/fa";
 import "./HSI.css";
 
 const HSI = (props) => {
-  const [clockRatio, setHSI] = useState(0);
-
-  useEffect(() => {
-    fetch("/api/")
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-      })
-      .then((jsonResponse) => setHSI(jsonResponse.HSIValue));
-  });
+  useEffect(() => {}, [props.hsi]);
 
   return (
-    <div>
-      <div className="circle" style={{ transform: `rotate(${clockRatio}deg)` }}>
+    <div className="icon">
+      <div className="circle" style={{ transform: `rotate(${props.hsi}deg)` }}>
         <div className="number number0">0</div>
         <div className="number number180">180</div>
         <div className="number number90">90</div>
         <div className="number number270">270</div>
-        <div className="arrow"></div>
       </div>
-      {/* <button
-        onClick={() => {
-          setHSI(clockRatio + 30);
-        }}
-      ></button> */}
+      <div className="arrow">
+        <FaLongArrowAltUp />
+      </div>
     </div>
   );
 };

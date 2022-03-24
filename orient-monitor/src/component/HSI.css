@@ -35,3 +35,17 @@
   display: flex;
   justify-content: center;
 }
+
+.icon {
+  font-size: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px 20px;
+}
+.arrow {
+  position: absolute;
+  left: 0;
+  right: 106px;
+  top: 125px;
+  text-align: center;
+}

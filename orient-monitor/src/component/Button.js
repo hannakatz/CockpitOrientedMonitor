@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
-import "./Button.css"
+import React, { useState } from "react";
+import "./Button.css";
 
-function Button() {
-  
-    return (
-      <div className='row-contaoner'>
-        <button className="visualB">
-          Visual
-        </button>
-        <button className="textB">
-          Text
-        </button>
-      </div>
-    );
-  }
-  export default Button
-  
+const Button = (props) => {
+  const setFlagT = () => {
+    props.setFlag(true);
+  };
+
+  const setFlagF = () => {
+    props.setFlag(false);
+  };
+
+  return (
+    <div className="row-contaoner">
+      <button className="visualB" onClick={setFlagT}>
+        Visual
+      </button>
+      <button className="textB" onClick={setFlagF}>
+        Text
+      </button>
+    </div>
+  );
+};
+export default Button;
