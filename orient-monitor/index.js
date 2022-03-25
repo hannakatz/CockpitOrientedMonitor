@@ -16,8 +16,6 @@ const io = socketIo(server, {
   },
 }); //in case server and client run on different urls
 io.on("connection", (socket) => {
-  console.log("client connected: ", socket.id);
-
   socket.join("project-room");
 
   socket.on("disconnect", (reason) => {
@@ -54,10 +52,12 @@ const Input = () => {
     if (err) {
       return onErr(err);
     }
-    console.log("Command-line input received:");
+
+    console.log("\nCommand-line input received:");
     console.log("  Altitude: " + result.Altitude);
     console.log("  HSI: " + result.HSI);
     console.log("  ADI: " + result.ADI);
+    console.log("\n");
 
     Altitude = parseInt(result.Altitude);
     HSI = parseInt(result.HSI);
@@ -75,9 +75,9 @@ setInterval(() => {
   io.to("project-room").emit("properties", { Altitude, HSI, ADI });
 });
 
-Input();
-
 server.listen(PORT, (err) => {
   if (err) console.log(err);
-  console.log("Server running on Port ", PORT);
+  //console.log("\nServer running on Port ", PORT);
 });
+
+Input();

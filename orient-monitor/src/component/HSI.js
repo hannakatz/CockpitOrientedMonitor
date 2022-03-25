@@ -7,10 +7,13 @@ const HSI = (props) => {
 
   return (
     <div className="icon">
-      <div className="circle" style={{ transform: `rotate(${props.hsi}deg)` }}>
+      <div
+        className="circle"
+        style={{ transform: `rotate(${360 - props.hsi}deg)` }}
+      >
         <div className="number number0">0</div>
-        <div className="number number180">180</div>
         <div className="number number90">90</div>
+        <div className="number number180">180</div>
         <div className="number number270">270</div>
       </div>
       <div className="arrow">

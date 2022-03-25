@@ -22,10 +22,10 @@
 }
 
 .circle .number180 {
-  --roation: 90deg;
+  --roation: 180deg;
 }
 .circle .number90 {
-  --roation: 180deg;
+  --roation: 90deg;
 }
 .circle .number270 {
   --roation: 270deg;
