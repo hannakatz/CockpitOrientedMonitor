@@ -7,7 +7,7 @@ const Altitude = (props) => {
   return (
     <div>
       <hr
-        class="new1"
+        className="new1"
         style={{ marginTop: `${-(props.altitude * 0.066) + 260}px` }}
       ></hr>
       <div className="altitude-box-gray">
